@@ -1,5 +1,5 @@
 #テスト
-![test](https://github.com/peanutnuts/mypkg/workflows/test.yml/badge.svg)
+![test](https://github.com/peanutnuts/mypkg/actions/workflows/test.yml/badge.svg)
 
 #説明
 deg-rad.py ノードを提供します。 
