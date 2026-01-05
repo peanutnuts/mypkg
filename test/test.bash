@@ -1,5 +1,4 @@
 #!/bin/bash
-
 set -e
 
 echo "===== Source ROS2 ====="
@@ -19,17 +18,16 @@ NODE_PID=$!
 sleep 2
 
 echo "===== Publish test value ====="
-ros2 topic pub --once /angle_deg std_msgs/msg/Float64 "{data: 30.0}" &
+ros2 topic pub --once /angle_deg std_msgs/msg/Float64 "{data: 30.0}"
 
 echo "===== Check output ====="
-OUTPUT=$(timeout 5 ros2 topic echo /angle_rad --once)
+OUTPUT=$(timeout 5 ros2 topic echo /angle_rad | head -n 1)
 
 echo "OUTPUT:"
 echo "$OUTPUT"
 
-kill $NODE_PID
+kill $NODE_PID || true
 
-# ここで値チェック（約 0.523599… rad）
 if echo "$OUTPUT" | grep -q "0.523"; then
   echo "TEST PASSED"
   exit 0
