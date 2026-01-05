@@ -30,6 +30,7 @@ setup(
         'console_scripts': [
             'talker = mypkg.talker:main',
             'listener = mypkg.listener:main',
+            'degrad = mypkg.degrad:main'
         ],
     },
 )

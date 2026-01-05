@@ -1,19 +1,20 @@
 import rclpy
 from rclpy.node import Node
-"""
-from std_msgs.msg import Int16
+
+from std_msgs.msg import Float64
 
 rclpy.init()
 node = Node("talker")
-pub = node.create_publisher(Int16, "countup", 10)
-n = 0
+pub = node.create_publisher(Float64, "angle_deg", 10)
+
+n = 0.0
 
 def cb():
     global n
-    msg = Int16()
+    msg = Float64()
     msg.data = n
     pub.publish(msg)
-    n += 1
+    n += 1.0
 
 def main():
     node.create_timer(0.5, cb)
@@ -22,7 +23,7 @@ def main():
 from person_msgs.srv import Query
 
 rclpy.int()
-node = NODE("talker")
+node = Node("talker")
 
 def cb(request, response):
     if request.name == "上田隆一":
@@ -32,5 +33,6 @@ def cb(request, response):
     return response
 
 def main():
-    srv = node.create_service(Query, "Query", cd) #サービスの作成
+    srv = node.create_service(Query, "Query", cb) #サービスの作成
     rclpy.spin(node)
+"""
