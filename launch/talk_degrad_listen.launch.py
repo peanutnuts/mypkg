@@ -19,5 +19,11 @@ def generate_launch_description():
             executable='listener',
             output='screen'
             )
+    
+    # 5秒後に launch 全体を終了する TimerAction
+    stop_launch = launch.actions.TimerAction(
+        period=5.0,
+        actions=[launch.actions.EmitEvent(event=launch.events.Shutdown())]
+    )
 
     return launch.LaunchDescription([talker, listener])
