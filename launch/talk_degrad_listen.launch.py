@@ -9,14 +9,15 @@ def generate_launch_description():
             package='mypkg',
             executable='talker',
             )
+    degrad = launch_ros.actions.Node(
+            package='mypkg',
+            executable='degrad',
+            )
+
     listener = launch_ros.actions.Node(
             package='mypkg',
             executable='listener',
             output='screen'
-            )
-    degrad = launch_ros.actions.Node(
-            package='mypkg',
-            executable='degrad',
             )
 
     return launch.LaunchDescription([talker, listener])
