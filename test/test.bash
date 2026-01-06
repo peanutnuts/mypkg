@@ -1,5 +1,5 @@
 #!/bin/bash
-# SPDX-FileCopyrightText: 2026 Ibuki Haga 　　　　　
+# SPDX-FileCopyrightText: 2026 Ibuki Haga
 # SPDX-License-Identifier: BSD-3-Clause
 set -e
 
