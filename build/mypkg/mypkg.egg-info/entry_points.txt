@@ -1,0 +1,5 @@
+[console_scripts]
+degrad = mypkg.degrad:main
+listener = mypkg.listener:main
+talker = mypkg.talker:main
+
