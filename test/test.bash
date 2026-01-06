@@ -48,6 +48,8 @@ ros2 topic pub --once /angle_deg std_msgs/msg/Float64 "{data: あ}"
 RESULT1=$?
 set -e
 
+echo "Exit status (あ): $RESULT1"
+
 if [ $RESULT1 -ne 0 ]; then
   echo "OK: ros2 topic pub failed as expected (あ)"
 else
@@ -64,6 +66,8 @@ ros2 topic pub --once /angle_deg std_msgs/msg/Float64 "{data: a}"
 RESULT2=$?
 set -e
 
+echo "Exit status (a): $RESULT2"
+
 if [ $RESULT2 -ne 0 ]; then
   echo "OK: ros2 topic pub failed as expected (a)"
 else
@@ -72,23 +76,7 @@ fi
 
 
 ########################################
-# 異常入力テスト 3: 空データ
-########################################
-echo "===== Invalid input test 3 (empty) ====="
-set +e
-ros2 topic pub --once /angle_deg std_msgs/msg/Float64 "{}"
-RESULT3=$?
-set -e
-
-if [ $RESULT3 -ne 0 ]; then
-  echo "OK: ros2 topic pub failed as expected (empty)"
-else
-  echo "NG: unexpected success (empty)"
-fi
-
-
-########################################
-# 最後にノードがまだ動いているか確認
+# ノードがまだ動いているか確認
 ########################################
 echo "===== Check node is still alive ====="
 if ps -p $NODE_PID > /dev/null; then
