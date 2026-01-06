@@ -18,12 +18,10 @@ NODE_PID=$!
 sleep 2
 
 echo "===== Publish test value ====="
-ros2 topic pub --once /angle_deg std_msgs/msg/Float64 "{data: 30.0}" --qos-reliability reliable
-
-sleep 2
+ros2 topic pub --once /angle_deg std_msgs/msg/Float64 "{data: 30.0}"
 
 echo "===== Check output ====="
-OUTPUT=$(timeout 5 ros2 topic echo /angle_rad --once)
+OUTPUT=$(timeout 5 ros2 topic echo /angle_rad --once --qos-durability transient_local)
 
 echo "OUTPUT:"
 echo "$OUTPUT"

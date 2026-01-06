@@ -12,6 +12,7 @@ class DegToRadNode(Node):
         self.sub_deg = self.create_subscription(Float64,'angle_deg',self.callback_deg,10)
 
         # 出力: 角度[rad]
+        qos_profile.durability = QoSDurabilityPolicy.TRANSIENT_LOCAL  # ←ここが重要
         self.pub_rad = self.create_publisher(Float64,'angle_rad',10)
 
     def callback_deg(self, msg):
