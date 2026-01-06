@@ -9,23 +9,25 @@ cd /root/ros2_ws
 colcon build --packages-select mypkg
 
 echo "===== Source workspace ====="
-source install/setup.bash
+source ~/.bashrc
 
 echo "===== Run deg→rad node ====="
 ros2 run mypkg degrad &
 NODE_PID=$!
 
-sleep 2
+sleep 3
 
 echo "===== Publish test value ====="
 ros2 topic pub --once /angle_deg std_msgs/msg/Float64 "{data: 30.0}"
 
-sleep 2
+sleep 3
 
 echo "===== Check output ====="
-OUTPUT=$(timeout 5 ros2 topic echo /angle_rad --qos-durability transient_local)
+OUTPUT=$(timeout 5 ros2 topic echo /angle_rad --qos-durability transient_local | grep data)
 
 echo "$OUTPUT"
+
+kill $NODE_PID || true
 
 if echo "$OUTPUT" | grep -q "0.523"; then
   echo "TEST PASSED"
