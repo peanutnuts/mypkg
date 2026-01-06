@@ -23,7 +23,7 @@ ros2 topic pub --once /angle_deg std_msgs/msg/Float64 "{data: 30.0}" --qos-relia
 sleep 2
 
 echo "===== Check output ====="
-OUTPUT=$(ros2 topic echo /angle_rad)
+OUTPUT=$(timeout 5 ros2 topic echo /angle_rad --once)
 
 echo "OUTPUT:"
 echo "$OUTPUT"
