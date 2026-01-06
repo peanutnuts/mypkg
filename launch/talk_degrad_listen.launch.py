@@ -1,3 +1,7 @@
+#!/usr/bin/python3
+# SPDX-FileCopyrightText: 2026 Ibuki Haga
+# SPDX-License-Identifier: BSD-3-Clause
+
 import launch
 import launch.actions
 import launch.substitutions
@@ -26,4 +30,9 @@ def generate_launch_description():
         actions=[launch.actions.EmitEvent(event=launch.events.Shutdown())]
     )
 
-    return launch.LaunchDescription([talker, listener])
+    return launch.LaunchDescription([
+        talker, 
+        degrad, 
+        listener, 
+        stop_launch
+    ])
