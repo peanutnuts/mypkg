@@ -1,18 +1,18 @@
-#テスト
+# テスト
 ![test](https://github.com/peanutnuts/mypkg/actions/workflows/test.yml/badge.svg)
 
-#説明
+# 説明
 deg-rad.py ノードを提供します。 
 
 角度deg を角度rad に変換して出力します。
 
-#入手方法
+# 入手方法
 
 - $ git clone git@github.com/peanutnuts/mypkg.git  
 
 と入力してください。
 
-#degrad.py使用方法
+# degrad.py使用方法
 
 - $ros2 run mypkg degrad
 
@@ -33,7 +33,7 @@ deg-rad.py ノードを提供します。
 - QoS: depth=10, reliability=RELIABLE, durability=TRANSIENT_LOCAL
 - Unit: radians
 
-#talk_degrad_listen.launch.py使用方法
+# talk_degrad_listen.launch.py使用方法
 実際に動いているかの確認用に，launchファイル,talk_degrad_listen.launch.pyを用意しています。
 
 - $ ros2 launch mypkg talk_degrad_listen.launch.py
@@ -148,10 +148,10 @@ deg-rad.py ノードを提供します。
 - [ERROR] [degrad-2]: process has died [pid 151578, exit code -2, cmd '/home/ibuki/ros2_ws/install/mypkg/lib/mypkg/degrad --ros-args'].
 - [ERROR] [talker-1]: process has died [pid 151576, exit code -2, cmd '/home/ibuki/ros2_ws/install/mypkg/lib/mypkg/talker --ros-args'].
 
-#動作確認環境
+# 動作確認環境
 - Ubuntu 22.04.5 LTS 
 - Python 3.13.5  
 - git version 2.34.1
 
-#権利関係
+# 権利関係
 このソフトウェアパッケージは，3条項BSDライセンスの下，再頒布および使用が許可されます。 © 2025 Ibuki Haga
