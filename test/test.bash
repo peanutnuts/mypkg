@@ -23,12 +23,9 @@ ros2 topic pub --once /angle_deg std_msgs/msg/Float64 "{data: 30.0}"
 sleep 2
 
 echo "===== Check output ====="
-OUTPUT=$(timeout 5 ros2 topic echo /angle_rad --qos-durability transient_local | head -1)
+OUTPUT=$(timeout 5 ros2 topic echo /angle_rad --qos-durability transient_local)
 
-echo "OUTPUT:"
 echo "$OUTPUT"
-
-kill $NODE_PID || true
 
 if echo "$OUTPUT" | grep -q "0.523"; then
   echo "TEST PASSED"
