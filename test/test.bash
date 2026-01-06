@@ -20,8 +20,10 @@ sleep 2
 echo "===== Publish test value ====="
 ros2 topic pub --once /angle_deg std_msgs/msg/Float64 "{data: 30.0}" --qos-reliability reliable
 
+sleep 1
+
 echo "===== Check output ====="
-OUTPUT=$(ros2 topic echo /angle_rad --once)
+OUTPUT=$(ros2 topic echo /angle_rad --once --qos-reliability reliable)
 
 echo "OUTPUT:"
 echo "$OUTPUT"
