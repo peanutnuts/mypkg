@@ -23,7 +23,7 @@ ros2 topic pub --once /angle_deg std_msgs/msg/Float64 "{data: 30.0}"
 sleep 2
 
 echo "===== Check output ====="
-OUTPUT=$(timeout 5 ros2 topic echo /angle_rad --once --qos-durability transient_local)
+OUTPUT=$(timeout 5 ros2 topic echo /angle_rad --qos-durability transient_local | head -1)
 
 echo "OUTPUT:"
 echo "$OUTPUT"
