@@ -9,7 +9,7 @@ cd /root/ros2_ws
 colcon build --packages-select mypkg
 
 echo "===== Source workspace ====="
-source ~/.bashrc
+source install/setup.bash
 
 echo "===== Run deg→rad node ====="
 ros2 run mypkg degrad &
