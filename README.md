@@ -8,14 +8,24 @@ deg-rad ノードを提供します。
 
 ---
 ## ノード使用方法
-リポジトリを入手します。
+リポジトリの入手を行います。  
+ROS2 のワークスペースの`src`ディレクトリにて以下を入力してください。
 
 **bash**
 ```bash
 $ git clone git@github.com:peanutnuts/mypkg.git
 ```
 
-ノードを起動します。
+次にビルドを行います。  
+ROS2のワークスペースディレクトリにて以下を入力してください。
+
+**bash**
+```bash
+$ colcon build
+$ source install/setup.bash
+```
+
+最後にノードを実行します。以下を入力してください。
 
 **bash**
 ```bash
@@ -37,15 +47,13 @@ $ ros2 run mypkg degrad
 - Unit: radians
 
 ## talk_degrad_listen.launch.py使用方法
-
-実際に動いているかの確認用に，launchファイル,`talk_degrad_listen.launch.py`を用意しています。
+実際に動いているかの確認用に，launchファイル,`talk_degrad_listen.launch.py`を用意しています。  
+実行するには以下を入力してください。
 
 **bash**
 ```bash
 $ ros2 launch mypkg talk_degrad_listen.launch.py
 ```
-
-と入力してlaunchファイルを起動してください。
 
 実際に正しく動作した際のログの例は`log_launch_success.txt`にて保存しています。
 
