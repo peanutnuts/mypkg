@@ -2,7 +2,7 @@
 ![test](https://github.com/peanutnuts/mypkg/actions/workflows/test.yml/badge.svg)
 
 ## ノード説明
-deg-rad.py ノードを提供します。 
+deg-rad ノードを提供します。 
 
 角度(deg)を角度(rad)に変換して出力します。
 
@@ -40,7 +40,10 @@ $ ros2 run mypkg degrad
 
 実際に動いているかの確認用に，launchファイル,`talk_degrad_listen.launch.py`を用意しています。
 
-- $ ros2 launch mypkg talk_degrad_listen.launch.py
+**bash**
+```bash
+$ ros2 launch mypkg talk_degrad_listen.launch.py
+```
 
 と入力してlaunchファイルを起動してください。
 
