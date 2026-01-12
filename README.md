@@ -64,7 +64,6 @@ $ ros2 launch mypkg talk_degrad_listen.launch.py
 [listener-3] [INFO] [1767723090.251775331] [listener]: Listen: 0.034907:
 [listener-3] [INFO] [1767723090.253045906] [listener]: Listen: 0.034907:
 [listener-3] [INFO] [1767723090.253909394] [listener]: Listen: 0.034907:
-...
 ```
 
 このログの全文は`log_launch_success.txt`にて保存しています。
