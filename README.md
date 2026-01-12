@@ -16,16 +16,8 @@ ROS2 のワークスペースの`src`ディレクトリにて以下を入力し�
 $ git clone git@github.com:peanutnuts/mypkg.git
 ```
 
-次にビルドを行います。  
-ROS2のワークスペースディレクトリにて以下を入力してください。
-
-**bash**
-```bash
-$ colcon build
-$ source install/setup.bash
-```
-
-最後にノードを実行します。以下を入力してください。
+ビルドを実行した後に，  
+ノードを実行します。以下を入力してください。
 
 **bash**
 ```bash
@@ -36,14 +28,12 @@ $ ros2 run mypkg degrad
 
 `/angle_deg` (std_msgs/Float64)
 - Publisher: 任意のノード
-- QoS: depth=10, reliability=RELIABLE, durability=VOLATILE
 - Unit: degrees
 
 出力トピックと形式は以下の通りです。
 
 `/angle_rad` (std_msgs/Float64)
 - Publisher: mypkg/degrad
-- QoS: depth=10, reliability=RELIABLE, durability=TRANSIENT_LOCAL
 - Unit: radians
 
 ## talk_degrad_listen.launch.py使用方法
@@ -55,7 +45,29 @@ $ ros2 run mypkg degrad
 $ ros2 launch mypkg talk_degrad_listen.launch.py
 ```
 
-実際に正しく動作した際のログの例は`log_launch_success.txt`にて保存しています。
+以下は，正しく動作した際のログの一部です。
+
+**bash**
+```bash
+[INFO] [1767723089.260424853] [deg_to_rad_node]: 0.000 deg -> 0.00000 rad
+[degrad-2] [INFO] [1767723089.268183271] [deg_to_rad_node]: 0.000 deg -> 0.00000 rad
+[listener-3] [INFO] [1767723089.268641235] [listener]: Listen: 0.000000:
+[listener-3] [INFO] [1767723089.269891128] [listener]: Listen: 0.000000:
+[listener-3] [INFO] [1767723089.270832851] [listener]: Listen: 0.000000:
+[INFO] [1767723089.747852682] [deg_to_rad_node]: 1.000 deg -> 0.01745 rad
+[degrad-2] [INFO] [1767723089.747673396] [deg_to_rad_node]: 1.000 deg -> 0.01745 rad
+[listener-3] [INFO] [1767723089.748739303] [listener]: Listen: 0.017453:
+[listener-3] [INFO] [1767723089.749888205] [listener]: Listen: 0.017453:
+[listener-3] [INFO] [1767723089.750972353] [listener]: Listen: 0.017453:
+[INFO] [1767723090.250884701] [deg_to_rad_node]: 2.000 deg -> 0.03491 rad
+[degrad-2] [INFO] [1767723090.251686237] [deg_to_rad_node]: 2.000 deg -> 0.03491 rad
+[listener-3] [INFO] [1767723090.251775331] [listener]: Listen: 0.034907:
+[listener-3] [INFO] [1767723090.253045906] [listener]: Listen: 0.034907:
+[listener-3] [INFO] [1767723090.253909394] [listener]: Listen: 0.034907:
+...
+```
+
+このログの全文は`log_launch_success.txt`にて保存しています。
 
 ---
 ## 動作確認環境
